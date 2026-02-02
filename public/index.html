@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VFC Travel Insurance | Premium TAS & PAX Coverage</title>
+    <meta name="description"
+        content="Experience superior travel protection with VFC. specialized Travel Assistance Services (TAS) and Passenger Insurance (PAX) for the modern traveler.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo_oval.png" alt="VFC Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#tas" data-i18n="nav.tas">Assistance (TAS)</a></li>
+                <li><a href="#pax" data-i18n="nav.pax">Passenger (PAX)</a></li>
+                <li><a href="#contact" class="btn-primary" data-i18n="nav.cta">Get Covered</a></li>
+                <li>
+                    <select id="lang-selector" class="lang-selector" aria-label="Language selector">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="zh">ZH</option>
+                        <option value="fr">FR</option>
+                        <option value="de">DE</option>
+                    </select>
+                </li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <span class="icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title" data-i18n="hero.title">Travel Without <br> <span class="highlight">Compromise</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Premium protection for your journey. Expert medical
+                assistance and comprehensive passenger coverage, redefined.</p>
+            <div class="hero-buttons">
+                <a href="#tas" class="btn-secondary" data-i18n="hero.btn_tas">Assistance (TAS)</a>
+                <a href="#pax" class="btn-primary" data-i18n="hero.btn_pax">Passenger (PAX)</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </header>
+
+    <section id="tas" class="section tas-section">
+        <div class="container">
+            <div class="section-header">
+                <img src="assets/logo_tas_v2.jpg" alt="TAS Logo" class="brand-logo">
+                <span class="overline" data-i18n="tas.overline">Travel Assistance Services</span>
+                <h2 data-i18n="tas.title">Global Medical Safety Net</h2>
+                <p data-i18n="tas.subtitle">Wherever you go, our medical experts are one call away. 24/7/365.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <div class="icon-box">🏥</div>
+                    <h3 data-i18n="tas.card1.title">Medical Repatriation</h3>
+                    <p data-i18n="tas.card1.desc"> seamless transport to the best facilities or back home if fully
+                        medically necessary.</p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="icon-box">🩺</div>
+                    <h3 data-i18n="tas.card2.title">Telemedicine Access</h3>
+                    <p data-i18n="tas.card2.desc">Instant video consultations with certified doctors in your language.
+                    </p>
+                </div>
+                <div class="feature-card glass">
+                    <div class="icon-box">🛡️</div>
+                    <h3 data-i18n="tas.card3.title">Crisis Management</h3>
+                    <p data-i18n="tas.card3.desc">Expert handling of complex emergencies and hospitalization
+                        coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pax" class="section pax-section">
+        <div class="container">
+            <div class="section-header">
+                <img src="assets/logo_pax_v2.png" alt="PAX Logo" class="brand-logo">
+                <span class="overline" data-i18n="pax.overline">Passenger Insurance</span>
+                <h2 data-i18n="pax.title">Seamless Journey Protection</h2>
+                <p data-i18n="pax.subtitle">Delays happen. Losses happen. We ensure they don't stop you.</p>
+            </div>
+            <div class="split-layout">
+                <div class="split-content">
+                    <ul class="benefit-list">
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="benefit-text">
+                                <strong data-i18n="pax.item1.title">Flight Cancellation & Delays</strong>
+                                <p data-i18n="pax.item1.desc">Instant compensation for severe delays and covered
+                                    cancellations.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="benefit-text">
+                                <strong data-i18n="pax.item2.title">Baggage Protection</strong>
+                                <p data-i18n="pax.item2.desc">Coverage for lost, stolen, or delayed luggage so you can
+                                    shop for essentials.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="check-icon">✓</div>
+                            <div class="benefit-text">
+                                <strong data-i18n="pax.item3.title">Personal Liability</strong>
+                                <p data-i18n="pax.item3.desc">Protection against accidental damage to third parties or
+                                    property.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="split-visual glass-panel">
+                    <!-- Placeholder/Styling for visual interest -->
+                    <div class="abstract-shape"></div>
+                    <div class="pax-card-mockup">
+                        <div class="card-chip"></div>
+                        <div class="card-number">**** **** **** 4242</div>
+                        <div class="card-name">VFC PREMIER PAX</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="section partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="partners.title">Strategic Alliance</h2>
+                <p data-i18n="partners.subtitle">VFC is the official partner of TAS and PAX, specialized leaders in
+                    their fields.</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="assets/logo_tas_v2.jpg" alt="TAS Logo" class="partner-logo">
+                    <p data-i18n="partners.tas_desc">TAS provides world-class medical assistance infrastructure with a
+                        global network of providers.</p>
+                </div>
+                <div class="partner-divider"></div>
+                <div class="partner-card">
+                    <img src="assets/logo_pax_v2.png" alt="PAX Logo" class="partner-logo">
+                    <p data-i18n="partners.pax_desc">PAX offers underwriting excellence and instant claims processing
+                        for passenger inconveniences.</p>
+                </div>
+            </div>
+            <div class="partners-cta">
+                <p class="highlight-text" data-i18n="partners.benefit">Together, we deliver the fastest response times
+                    and most comprehensive coverage in the market.</p>
+                <a href="#contact" class="btn-primary" data-i18n="partners.cta">Travel with Confidence</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 data-i18n="cta.title">Ready to Upgrade Your Travel?</h2>
+                <p data-i18n="cta.subtitle">Join thousands of travelers who trust VFC for their safety and peace of
+                    mind.</p>
+                <form class="email-form">
+                    <input type="email" placeholder="Enter your email address" required
+                        data-i18n="[placeholder]cta.placeholder">
+                    <button type="submit" class="btn-primary" data-i18n="cta.btn">Start Protection</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">
+                    <img src="assets/logo_oval.png" alt="VFC Logo" class="logo-img">
+                </a>
+                <p data-i18n="footer.tagline">Redefining travel insurance standards.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.products">Products</h4>
+                <a href="#tas" data-i18n="nav.tas">TAS (Assistance)</a>
+                <a href="#pax" data-i18n="nav.pax">PAX (Passenger)</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.company">Company</h4>
+                <a href="#" id="about-us-link" data-i18n="footer.about">About Us</a>
+                <a href="#" data-i18n="footer.contact">Contact</a>
+                <a href="#" data-i18n="footer.terms">Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer.legal">Legal</h4>
+                <p>&copy; 2026 VFC Insurance Group. All rights reserved.</p>
+                <p class="footer-credit" style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;"
+                    data-i18n="footer.credit">Technological Ally: Teltec Honduras</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,862 @@
+:root {
+    --primary-color: #334155;
+    /* Slate 700 (Gray) */
+    --accent-color: #38BDF8;
+    /* Sky 400 (Light Blue) */
+    --text-light: #F8FAFC;
+    --text-dark: #1E293B;
+    --text-gray: #64748B;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-bg-light: #ffffff;
+    --section-bg-alt: #F1F5F9;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #94a3b8;
+    /* Slate 400 */
+    --text-dark: #f8fafc;
+    /* Slate 50 */
+    --text-gray: #cbd5e1;
+    /* Slate 300 */
+    --card-bg-light: #1e293b;
+    /* Slate 800 */
+    --section-bg-alt: #0f172a;
+    /* Slate 950 */
+    background-color: #020617;
+    /* Slate 950 */
+}
+
+/* Specific Dark Mode Overrides */
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    /* Slate 900 to Slate 950 */
+}
+
+body.dark-mode .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.85);
+    /* Stronger dark background */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .navbar.scrolled .logo-img {
+    filter: brightness(0) invert(1);
+    /* Invert logo to white */
+}
+
+body.dark-mode .navbar.scrolled .nav-links a:not(.btn-primary) {
+    color: var(--text-dark);
+    /* Ensure links are light */
+}
+
+body.dark-mode .navbar.scrolled .lang-selector {
+    color: var(--text-dark);
+    border-color: var(--text-gray);
+}
+
+body.dark-mode .navbar.scrolled .lang-selector option {
+    background: #1e293b;
+    color: var(--text-light);
+}
+
+body.dark-mode .tas-section,
+body.dark-mode .partners-section {
+    background-color: rgba(15, 23, 42, 0.92);
+    /* Dark transparent bg */
+}
+
+body.dark-mode .pax-section {
+    background-color: rgba(30, 41, 59, 0.92);
+}
+
+body.dark-mode .feature-card,
+body.dark-mode .feature-card.glass {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .feature-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Night Reading Typography */
+body.dark-mode p,
+body.dark-mode li {
+    letter-spacing: 0.02em;
+    /* Improve legibility on dark background */
+    line-height: 1.75;
+    /* Relaxed reading */
+    font-weight: 300;
+    /* Slightly lighter/cleaner look */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(15deg) scale(1.1);
+}
+
+.navbar.scrolled .theme-toggle {
+    color: var(--text-dark);
+    border-color: #cbd5e1;
+}
+
+body.dark-mode .theme-toggle {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* Moon Animation */
+@keyframes moon-rise {
+    0% {
+        transform: translateY(10px) opacity(0);
+    }
+
+    100% {
+        transform: translateY(0) opacity(1);
+    }
+}
+
+.theme-toggle .icon {
+    display: inline-block;
+}
+
+body.dark-mode .theme-toggle .icon {
+    animation: moon-rise 0.5s ease-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Watermark */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    max-width: 600px;
+    height: 60vh;
+    background: url('assets/logo_oval.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.15;
+    /* ~85% invisible */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.overline {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-light);
+    /* Assuming dark background usually */
+    padding: 0.9rem 1.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-light);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    /* Less transparent to ensure contrast */
+    backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* Slightly stronger shadow */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* subtle border to define the 'bar' */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    /* Adjust based on navbar height */
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar.scrolled .logo-img {
+    filter: brightness(0);
+    /* Make logo black on white scrolled navbar for contrast */
+}
+
+/* Footer specific logo adjustments */
+.footer-logo img {
+    height: 60px;
+    margin-bottom: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    /* Slightly bolder */
+    font-size: 1.1rem;
+    /* Larger text */
+    transition: var(--transition);
+    padding: 0.75rem 1.25rem;
+    /* Extended hover/clickable area */
+    display: inline-block;
+    border-radius: 4px;
+    /* Soft edges for the hover effect */
+}
+
+.navbar.scrolled .nav-links a:not(.btn-primary) {
+    color: var(--text-dark);
+}
+
+.nav-links:hover a {
+    filter: blur(2px);
+    opacity: 0.5;
+}
+
+.nav-links a:hover {
+    filter: blur(0);
+    opacity: 1;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    /* Sky Blue Glow */
+    transform: scale(1.05);
+}
+
+.navbar.scrolled .nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Fix for CTA button in nav */
+.nav-links .btn-primary:hover {
+    color: white !important;
+    text-shadow: none;
+}
+
+.lang-selector {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+}
+
+.lang-selector option {
+    background: var(--primary-color);
+    color: white;
+}
+
+.navbar.scrolled .lang-selector {
+    background: transparent;
+    border-color: #cbd5e1;
+    color: var(--text-dark);
+}
+
+.navbar.scrolled .lang-selector option {
+    background: white;
+    color: var(--text-dark);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    /* Simple premium gradient background */
+    background: linear-gradient(135deg, #64748b 0%, #1e293b 100%);
+    /* Slate 500 to Slate 900 */
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 40%);
+    /* Sky Blue accent glow */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 4rem;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    /* slate-300 */
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Sections General */
+.section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.section-header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* TAS Section */
+.tas-section {
+    background-color: rgba(255, 255, 255, 0.92);
+    position: relative;
+    z-index: 1;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: var(--transition);
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-color);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    color: var(--text-gray);
+}
+
+/* PAX Section */
+.pax-section {
+    background-color: rgba(241, 245, 249, 0.92);
+    /* var(--section-bg-alt) with opacity */
+    position: relative;
+    z-index: 1;
+}
+
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.split-content {
+    flex: 1;
+}
+
+.split-visual {
+    flex: 1;
+    position: relative;
+    height: 400px;
+}
+
+.benefit-list {
+    list-style: none;
+}
+
+.benefit-list li {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.benefit-text strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.benefit-text p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Abstract Visual for PAX */
+.pax-card-mockup {
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(to bottom right, #cbd5e1, #94a3b8);
+    border-radius: 4px;
+}
+
+.card-number {
+    font-family: monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.card-name {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.abstract-shape {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.2;
+    filter: blur(40px);
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 8rem 0;
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.cta-box p {
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.email-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.email-form input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+}
+
+/* Footer */
+.footer {
+    background: #1e293b;
+    /* Slate 900 */
+    color: #94a3b8;
+    padding: 4rem 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+}
+
+.footer-logo {
+    display: block;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-col h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.footer-col a {
+    display: block;
+    color: #94a3b8;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: var(--accent-color);
+}
+
+/* Brand Logos in Section Headers */
+.brand-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+/* Partners Section */
+.partners-section {
+    background-color: rgba(248, 250, 252, 0.92);
+    position: relative;
+    z-index: 1;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.partner-card {
+    text-align: center;
+    max-width: 300px;
+}
+
+.partner-logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.partner-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.partner-divider {
+    width: 1px;
+    height: 100px;
+    background: #cbd5e1;
+}
+
+.partners-cta {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.highlight-text {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-family: var(--font-heading);
+}
+
+/* Info Popover */
+.info-popover {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.info-popover.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.dark-mode .info-popover {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        /* Even smaller for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 30px;
+        height: 2px;
+        background-color: var(--text-light);
+        /* Default for hero */
+        transition: var(--transition);
+    }
+
+    .navbar.scrolled .hamburger span {
+        background-color: var(--text-dark);
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.98);
+        /* Primary color dark */
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .split-layout {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
